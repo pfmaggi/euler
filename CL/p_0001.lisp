@@ -1,0 +1,7 @@
+(defun multiples-of-three-and-five (n)
+  (let ((sum 0))
+    (dotimes (i n)
+      (cond ((eq 0 (rem i 3)) (setf sum (+ sum i)))
+	    ((eq 0 (rem i 5)) (setf sum (+ sum i)))))
+    (princ sum))
+  )
