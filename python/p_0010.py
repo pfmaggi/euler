@@ -9,13 +9,16 @@ Find the sum of all the primes below two million.
 """
 
 
+import argparse
+
 def find_primes(limit):
     """
     limit: upper limits for the prime numbers to compute
     return: list of prime numbers
     """
-    primes = list()
-    for candidate in range(2, limit):
+    primes = [2]
+    sum = 2
+    for candidate in range(3, limit, 2):
         is_prime = True
         # for i in range(2, int(candidate/2)+1):
         for i in primes:
@@ -24,12 +27,16 @@ def find_primes(limit):
                 break
         if is_prime:
             primes.append(candidate)
-    return primes
+            sum += candidate
+    return sum
 
 
 if __name__ == '__main__':
     """
-    Find the sum of all the primes below two million.
+    Find the sum of all the primes below limit.
     """
-    primes = find_primes(2000000)
-    print(sum(primes))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("limit", help="Upper limit for the primes to sum", type=int)
+    args = parser.parse_args()
+    print("Find the sum of the primes below", args.limit)
+    print("Sum:", find_primes(args.limit))

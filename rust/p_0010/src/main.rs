@@ -4,10 +4,20 @@
 //
 // Find the sum of all the primes below two million.
 
-fn find_primes(limit: u64)-> Vec<u64> {
+use structopt::StructOpt;
+
+#[derive(StructOpt)]
+struct Opt {
+    /// Upper limit for the primes to sum
+    #[structopt(short, long, default_value = "2000000")]
+    limit: u64,
+}
+
+fn find_primes(limit: u64)-> u64 {
     let mut primes: Vec<u64> = Vec::new();
+    let mut sum: u64 = 2;
     primes.push(2);
-    for candidate in 2..limit {
+    for candidate in (3..limit).step_by(2) {
         let mut is_prime = true;
         for i in &primes {
             if candidate % i == 0 {
@@ -17,13 +27,15 @@ fn find_primes(limit: u64)-> Vec<u64> {
         }
         if is_prime {
             primes.push(candidate);
+            sum += candidate;
         }
 
     }
 
-    return primes
+    return sum
 }
 
 fn main() {
-    println!("The sum of all the primes below two million is: {}", find_primes(2000000).iter().sum::<u64>());
+    let args = Opt::from_args();
+    println!("The sum of all the primes below {} is: {}", args.limit, find_primes(args.limit));
 }
