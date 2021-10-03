@@ -3,14 +3,19 @@
 *.log
 tmp/
 
+# Python files
 *.py[cod]
 *.egg
 build
 htmlcov
 
+# Rust files
 # Generated files
 target/
 
 # The library shouldn't decide about the exact versions of
 # its dependencies, but let the downstream crate decide.
 Cargo.lock
+
+# Java files
+*.class
