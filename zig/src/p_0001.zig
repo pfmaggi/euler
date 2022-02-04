@@ -19,7 +19,7 @@ fn compute(limit: u64) u64 {
 pub fn main() anyerror!void {
     const stdout = std.io.getStdOut().writer();
 
-    try stdout.print("Sum of multiples of 3 and 5 below 1000 is: {d}\n", .{compute(1000)});
+    try stdout.print("Problem 0001: Sum of multiples of 3 and 5 below 1000 is: {d}\n", .{compute(1000)});
 }
 
 test "sum of multiple below 10 is 23" {
