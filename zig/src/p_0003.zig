@@ -1,0 +1,42 @@
+// The prime factors of 13195 are 5, 7, 13 and 29.
+//
+// What is the largest prime factor of the number 600851475143 ?
+//
+
+const std = @import("std");
+
+fn largest_factor(value: u64) u64 {
+    const sqrt = std.math.sqrt;
+    var result: u64 = 1;
+    var temp: u64 = value;
+    while (temp % 2 == 0) {
+        result = 2;
+        temp /= 2;
+    }
+
+    var i: u64 = 3;
+    const limit: f32 = comptime sqrt(600851475143);
+    while (i < limit + 1) {
+        while (temp % i == 0) {
+            result = i;
+            temp /= i;
+        }
+        i += 2;
+    }
+
+    if (temp > 2) {
+        result = temp;
+    }
+
+    return result;
+}
+
+pub fn main() anyerror!void {
+    const stdout = std.io.getStdOut().writer();
+
+    try stdout.print("Problem 0003: What is the largest prime factor of the number 600851475143 is: {d}\n", .{largest_factor(600851475143)});
+}
+
+test "the largest prime factor of 13195 is 29" {
+    try std.testing.expect(largest_factor(13195) == 29);
+}
