@@ -5,17 +5,17 @@
 
 const std = @import("std");
 
-fn largest_factor(value: u64) u64 {
+fn largest_factor(value: usize) usize {
     const sqrt = std.math.sqrt;
-    var result: u64 = 1;
+    var result: usize = 1;
     var temp: u64 = value;
     while (temp % 2 == 0) {
         result = 2;
         temp /= 2;
     }
 
-    var i: u64 = 3;
-    const limit: f32 = comptime sqrt(600851475143);
+    var i: usize = 3;
+    const limit: usize = @floatToInt(usize, sqrt(@intToFloat(f64, value)));
     while (i < limit + 1) {
         while (temp % i == 0) {
             result = i;

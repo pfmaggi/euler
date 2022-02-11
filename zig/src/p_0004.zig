@@ -6,7 +6,7 @@
 const std = @import("std");
 const fmt = std.fmt;
 
-fn is_number_palindrome(number: u64) bool {
+fn is_number_palindrome(number: usize) bool {
     var buf: [128]u8 = undefined;
 
     const value = fmt.bufPrint(&buf, "{}", .{number}) catch unreachable;
@@ -19,20 +19,20 @@ fn is_number_palindrome(number: u64) bool {
     return true;
 }
 
-fn find_palindrome(digits: u8) u64 {
-    var limit: u64 = 1;
-    var i: u8 = 0;
+fn find_palindrome(digits: usize) usize {
+    var limit: usize = 1;
+    var i: usize = 0;
     while (i < digits) {
         i += 1;
         limit *= 10;
     }
 
-    var result: u64 = 0;
-    var a: u64 = limit;
-    var value: u64 = 0;
+    var result: usize = 0;
+    var a: usize = limit;
+    var value: usize = 0;
     while (a > 0) {
         a -= 1;
-        var b: u64 = limit;
+        var b: usize = limit;
         while (b > 0) {
             b -= 1;
             value = a * b;

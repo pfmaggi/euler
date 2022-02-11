@@ -6,9 +6,9 @@
 
 const std = @import("std");
 
-fn compute(limit: u64) u64 {
-    var i: u64 = 1;
-    var sum: u64 = 0;
+fn compute(limit: usize) usize {
+    var i: usize = 1;
+    var sum: usize = 0;
     while (i < limit) {
         if ((i % 3 == 0) or (i % 5 == 0)) sum += i;
         i += 1;
