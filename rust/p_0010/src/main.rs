@@ -5,37 +5,34 @@
 // Find the sum of all the primes below two million.
 
 use structopt::StructOpt;
+use bit_vec::BitVec;
 
 #[derive(StructOpt)]
 struct Opt {
     /// Upper limit for the primes to sum
     #[structopt(short, long, default_value = "2000000")]
-    limit: u64,
+    limit: usize,
 }
 
-fn find_primes(limit: u64)-> u64 {
-    let mut primes: Vec<u64> = Vec::new();
-    let mut sum: u64 = 2;
-    primes.push(2);
-    for candidate in (3..limit).step_by(2) {
-        let mut is_prime = true;
-        for i in &primes {
-            if candidate % i == 0 {
-                is_prime = false;
-                break;
+fn find_primes_sieve(limit: usize)-> usize {
+    let mut marked = BitVec::from_elem(limit, true);
+    let mut value: usize = 3;
+    let mut sum: usize = 2;
+    while value < limit {
+        if marked[value] {
+            sum += value;
+            let mut i = value;
+            while i < limit {
+                marked.set(i, false);
+                i += value;
             }
         }
-        if is_prime {
-            primes.push(candidate);
-            sum += candidate;
-        }
-
+        value += 2;
     }
-
-    return sum
+    return sum;
 }
 
 fn main() {
     let args = Opt::from_args();
-    println!("The sum of all the primes below {} is: {}", args.limit, find_primes(args.limit));
+    println!("The sum of all the primes below {} is: {}", args.limit, find_primes_sieve(args.limit));
 }
