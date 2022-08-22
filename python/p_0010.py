@@ -36,7 +36,7 @@ if __name__ == '__main__':
     Find the sum of all the primes below limit.
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("limit", help="Upper limit for the primes to sum", type=int)
+    parser.add_argument("limit", help="Upper limit for the primes", type=int)
     args = parser.parse_args()
     print("Find the sum of the primes below", args.limit)
     print("Sum:", compute_primes_sum_sieve(args.limit))

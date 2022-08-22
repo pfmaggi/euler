@@ -6,7 +6,6 @@
 const std = @import("std");
 
 fn largest_factor(value: usize) usize {
-    const sqrt = std.math.sqrt;
     var result: usize = 1;
     var temp: u64 = value;
     while (temp % 2 == 0) {
@@ -15,8 +14,7 @@ fn largest_factor(value: usize) usize {
     }
 
     var i: usize = 3;
-    const limit: usize = @floatToInt(usize, sqrt(@intToFloat(f64, value)));
-    while (i < limit + 1) {
+    while (i < temp) {
         while (temp % i == 0) {
             result = i;
             temp /= i;
