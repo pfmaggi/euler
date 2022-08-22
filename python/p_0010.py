@@ -12,24 +12,23 @@ Find the sum of all the primes below two million.
 import argparse
 
 
-def compute_primes_sum(limit):
+def compute_primes_sum_sieve(limit):
     """
     limit: upper limits for the prime numbers to compute
-    return: list of prime numbers
+    return: sum of the prime numbers found below the limit
     """
-    primes = [2]
-    primes_sum = 2
-    for candidate in range(3, limit, 2):
-        is_prime = True
-        # for i in range(2, int(candidate/2)+1):
-        for i in primes:
-            if candidate % i == 0:
-                is_prime = False
-                break
-        if is_prime:
-            primes.append(candidate)
-            primes_sum += candidate
-    return primes_sum
+    marked = [0] * limit
+    value = 3
+    s = 2
+    while value < limit:
+        if marked[value] == 0:
+            s += value
+            i = value
+            while i < limit:
+                marked[i] = 1
+                i += value
+        value += 2
+    return s
 
 
 if __name__ == '__main__':
@@ -40,4 +39,4 @@ if __name__ == '__main__':
     parser.add_argument("limit", help="Upper limit for the primes to sum", type=int)
     args = parser.parse_args()
     print("Find the sum of the primes below", args.limit)
-    print("Sum:", compute_primes_sum(args.limit))
+    print("Sum:", compute_primes_sum_sieve(args.limit))
