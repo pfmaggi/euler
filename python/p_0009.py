@@ -36,5 +36,10 @@ def euler_0009():
             if is_triplet:
                 if a + b + c == 1000:
                     print("Pythagorean Triplet:", a, b, c)
-                    print("product:", a * b * c)
-                    break
+                    product = a * b * c
+                    print("product:", product)
+                    return product
+
+
+if __name__ == '__main__':
+    euler_0009()

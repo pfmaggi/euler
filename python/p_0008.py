@@ -46,3 +46,7 @@ def search_greatest_product(digits):
         if value > greatest:
             greatest = value
     return greatest
+
+
+if __name__ == '__main__':
+    print(search_greatest_product(13))

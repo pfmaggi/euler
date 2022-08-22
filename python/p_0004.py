@@ -29,3 +29,9 @@ def search_largest_palindrome(limit):
         factors[0], "*", factors[1],
         "=", largest_palindrome
     )
+
+    return largest_palindrome
+
+
+if __name__ == '__main__':
+    search_largest_palindrome(3)

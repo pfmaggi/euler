@@ -37,3 +37,7 @@ def common_factors(limit):
         # print(k, max(v))
         result *= (k ** max(v))
     return result
+
+
+if __name__ == '__main__':
+    print(common_factors(20))

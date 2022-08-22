@@ -24,4 +24,4 @@ def find_prime_number(count):
 
 
 if __name__ == '__main__':
-    print(find_prime_number(10001))
+    find_prime_number(10001)

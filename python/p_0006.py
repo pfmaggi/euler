@@ -26,3 +26,7 @@ def compute_difference(limit):
     """Find the difference between the sum of the squares and
        the square of the sum."""
     return square_of_sum(limit) - sum_of_squares(limit)
+
+
+if __name__ == '__main__':
+    print(compute_difference(100))
