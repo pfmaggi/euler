@@ -23,7 +23,7 @@ int main(void) {
         second = swap + second;
     }
 
-    printf("Result = %llu\n", sum);
+    printf("Result = %lu\n", sum);
 
     return EXIT_SUCCESS;
 }
