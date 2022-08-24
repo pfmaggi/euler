@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <inttypes.h>
 
 u_int64_t findLargestPrimeFactor(u_int64_t number) {
     u_int64_t result = 0;
@@ -27,7 +28,7 @@ u_int64_t findLargestPrimeFactor(u_int64_t number) {
 
 int main(void) {
 
-    printf("Result = %lu\n", findLargestPrimeFactor(600851475143));
+    printf("Result = %"PRIu64"\n", findLargestPrimeFactor(600851475143));
 
     return EXIT_SUCCESS;
 }

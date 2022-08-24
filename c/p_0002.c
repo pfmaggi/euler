@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <inttypes.h>
 
 int main(void) {
 
@@ -23,7 +24,7 @@ int main(void) {
         second = swap + second;
     }
 
-    printf("Result = %lu\n", sum);
+    printf("Result = %"PRIu64"\n", sum);
 
     return EXIT_SUCCESS;
 }
