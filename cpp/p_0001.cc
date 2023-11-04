@@ -1,7 +1,6 @@
 /* Find the sum of all the multiples of 3 and 5 below 1000 */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
 
 int main(void) {
 
@@ -15,6 +14,4 @@ int main(void) {
     }
 
     printf("Result = %d\n", sum);
-
-    return EXIT_SUCCESS;
 }
