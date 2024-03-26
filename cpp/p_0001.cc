@@ -2,10 +2,10 @@
 
 #include <cstdio>
 
-int main(void) {
+auto p_0001(int max) {
+    int sum{};
 
-    int sum = 0;
-    for (int i=0; i<1000; i++) {
+    for (int i{}; i<max; i++) {
         if (i % 3 == 0) {
             sum += i;
         } else if (i % 5 == 0) {
@@ -13,5 +13,9 @@ int main(void) {
         }
     }
 
-    printf("Result = %d\n", sum);
+    return sum;
+}
+
+int main(void) {
+    printf("Result = %d\n", p_0001(1000));
 }
