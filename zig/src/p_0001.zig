@@ -6,12 +6,10 @@
 
 const std = @import("std");
 
-fn compute(limit: usize) usize {
-    var i: usize = 1;
+fn compute(comptime limit: usize) usize {
     var sum: usize = 0;
-    while (i < limit) {
+    for (3..limit) |i| {
         if ((i % 3 == 0) or (i % 5 == 0)) sum += i;
-        i += 1;
     }
     return sum;
 }
@@ -19,9 +17,9 @@ fn compute(limit: usize) usize {
 pub fn main() anyerror!void {
     const stdout = std.io.getStdOut().writer();
 
-    try stdout.print("Problem 0001: Sum of multiples of 3 and 5 below 1000 is: {d}\n", .{compute(1000)});
+    try stdout.print("Problem 0001: Sum of multiples of 3 and 5 below 1000 is: {d}\n", .{comptime compute(1000)});
 }
 
 test "sum of multiple below 10 is 23" {
-    try std.testing.expect(compute(10) == 23);
+    try comptime std.testing.expect(compute(10) == 23);
 }

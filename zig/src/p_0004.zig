@@ -11,8 +11,8 @@ fn is_number_palindrome(number: usize) bool {
 
     const value = fmt.bufPrint(&buf, "{}", .{number}) catch unreachable;
 
-    var len: usize = value.len - 1;
-    for (value) |c, i| {
+    const len: usize = value.len - 1;
+    for (value, 0..) |c, i| {
         if (c != value[len - i]) return false;
     }
 

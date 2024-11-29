@@ -14,7 +14,7 @@ fn compute(limit: usize) usize {
     var sum: usize = 0;
     while (b < limit) {
         if (b % 2 == 0) sum += b;
-        var c: usize = a;
+        const c: usize = a;
         a = b;
         b += c;
     }
