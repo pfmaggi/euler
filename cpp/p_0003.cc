@@ -2,7 +2,7 @@
  * What is the largest prime factor of the number 600851475143?
  */
 
-#include <cstdio>
+#include <iostream>
 
 unsigned long findLargestPrimeFactor(unsigned long number) {
     auto result{0};
@@ -23,5 +23,5 @@ unsigned long findLargestPrimeFactor(unsigned long number) {
 }
 
 int main() {
-    printf("Result = %lu\n", findLargestPrimeFactor(600851475143));
+    std::cout << "Result = " << findLargestPrimeFactor(600851475143) << '\n';
 }

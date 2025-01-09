@@ -21,8 +21,11 @@ Cargo.lock
 *.class
 
 # Zig files
-zig-cache/
+.zig-cache/
 zig-out/
 
 # Common Lisp
 *.fasl
+
+# C++
+p_????.out

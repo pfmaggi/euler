@@ -3,7 +3,7 @@
  * exceed four million, find the sum of the even-valued terms.
  */
 
-#include <cstdio>
+#include <iostream>
 
 int sum_even_fibonacci(int limit) {
     // Return the sum of the even-valued terms.
@@ -12,13 +12,11 @@ int sum_even_fibonacci(int limit) {
     int second{2};
     while (second < limit) {
         if (second % 2 == 0) total += second;
-        int temp = second;
+        int temp{second};
         second += first;
         first = temp;
     }
     return total;
 }
 
-int main() {
-    printf("Value: %d\n", sum_even_fibonacci(4000000));
-}
+int main() { std::cout << "Value: " << sum_even_fibonacci(4000000) << '\n'; }
