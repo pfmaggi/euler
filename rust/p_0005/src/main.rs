@@ -1,38 +1,16 @@
-use std::collections::HashMap;
-
-fn compute_factors(num: u32) -> HashMap<u32, u32> {
-    let mut remainder = num;
-    let mut factors = HashMap::new();
-
-    for i in 2..=num {
-        while remainder % i == 0 {
-            remainder /= i;
-            *factors.entry(i).or_insert(0) += 1;
-        }
+fn gcd(a: u64, b: u64) -> u64 {
+    if b == 0 {
+        a
+    } else {
+        gcd(b, a % b)
     }
-    factors
 }
 
-fn common_factors(limit: u32) -> u32 {
-    let mut factors = HashMap::new();
-    let mut result = 1;
-
-    for i in 2..=limit {
-        for (k, v) in compute_factors(i) {
-            let entry = factors.entry(k).or_insert(0);
-            if *entry < v {
-                *entry = v;
-            }
-        }
-    }
-
-    for (k, v) in factors {
-        result *= k.pow(v);
-    }
-
-    result
+fn lcm(a: u64, b: u64) -> u64 {
+    a * b / gcd(a, b)
 }
 
 fn main() {
-    println!("{}", common_factors(20));
+    let result = (1..=20).fold(1, lcm);
+    println!("{}", result);
 }
