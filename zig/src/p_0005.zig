@@ -24,7 +24,7 @@ fn compute(limit: u64) u64 {
 }
 
 pub fn main() !void {
-    std.debug.print("{}\n", .{compute(20)});
+    std.debug.print("Problem 0005: The smallest positive number that is divisible by all of the numbers up to 20: {}\n", .{compute(20)});
 }
 
 test "2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder" {
