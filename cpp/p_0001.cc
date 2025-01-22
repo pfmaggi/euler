@@ -15,4 +15,7 @@ auto p_0001(int max) {
                            });
 }
 
-int main(void) { std::cout << "Result = " << p_0001(1000) << '\n'; }
+int main(void) {
+    std::cout << "Problem 0001: Sum of multiples of 3 and 5 below 1000 is: "
+              << p_0001(1000) << '\n';
+}

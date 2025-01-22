@@ -23,5 +23,7 @@ unsigned long findLargestPrimeFactor(unsigned long number) {
 }
 
 int main() {
-    std::cout << "Result = " << findLargestPrimeFactor(600851475143) << '\n';
+    std::cout << "Problem 0003: The largest prime factor of the number "
+                 "600851475143 is: "
+              << findLargestPrimeFactor(600851475143) << '\n';
 }

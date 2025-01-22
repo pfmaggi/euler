@@ -19,4 +19,8 @@ int sum_even_fibonacci(int limit) {
     return total;
 }
 
-int main() { std::cout << "Value: " << sum_even_fibonacci(4000000) << '\n'; }
+int main() {
+    std::cout
+        << "Problem 0002: Sum of even-valued fibonacci terms below 4000000 is: "
+        << sum_even_fibonacci(4000000) << '\n';
+}

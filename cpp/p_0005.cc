@@ -1,22 +1,23 @@
 #include <iostream>
+#include <numeric>
+#include <ranges>
 
-unsigned long long gcd(unsigned long long a, unsigned long long b) {
-    if (b == 0) {
-        return a;
-    }
-    return gcd(b, a % b);
-}
+unsigned long gcd(auto a, auto b) { return (b == 0) ? a : gcd(b, a % b); }
 
-unsigned long long lcm(unsigned long long a, unsigned long long b) {
-    return a * b / gcd(a, b);
+auto lcm(unsigned long a, unsigned long b) { return a * b / gcd(a, b); }
+
+auto p_0005(int max) {
+    auto numbers = std::ranges::iota_view{2, max + 1};
+    return std::accumulate(
+        numbers.begin(), numbers.end(), 1,
+        [](unsigned long result, int x) { return lcm(result, x); });
 }
 
 int main() {
-    unsigned long long result = 1;
-    for (unsigned long long i = 1; i <= 20; ++i) {
-        result = lcm(result, i);
-    }
+    auto result = p_0005(20);
 
-    std::cout << result << std::endl;
+    std::cout << "Problem 0005: The smallest positive number that is divisible "
+                 "by all of the numbers up to 20: "
+              << result << std::endl;
     return 0;
 }
