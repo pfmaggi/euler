@@ -1,35 +1,25 @@
 const std = @import("std");
 
-fn is_prime(comptime T: type, n: T) bool {
-    if (n <= 1) {
-        return false;
-    }
-    if (n <= 3) {
-        return true;
-    }
-    if ((n % 2 == 0) or (n % 3 == 0)) {
-        return false;
-    }
-
-    var i: T = 5;
-    while (i * i <= n) {
-        if ((n % i == 0) or (n % (i + 2) == 0)) {
-            return false;
-        }
-        i += 6;
-    }
-
-    return true;
-}
-
 fn euler_0010(limit: usize) usize {
-    var sum: usize = 0;
+    var sieve = std.heap.page_allocator.alloc(bool, limit) catch @panic("Can't allocate memory\n");
+    defer std.heap.page_allocator.free(sieve);
 
-    for (2..limit) |i| {
-        if (is_prime(usize, i)) {
+    @memset(sieve, true);
+    sieve[0] = false;
+    sieve[1] = false;
+
+    var sum: usize = 0;
+    var i: usize = 2;
+    while (i < limit) : (i += 1) {
+        if (sieve[i]) {
             sum += i;
+            var j: usize = i * i;
+            while (j < limit) : (j += i) {
+                sieve[j] = false;
+            }
         }
     }
+
     return sum;
 }
 
