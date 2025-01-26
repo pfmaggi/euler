@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <cassert>
 #include <cstddef>
+#include <cstdint>
 #include <cstdio>
 #include <iostream>
 #include <numeric>
@@ -10,14 +11,14 @@
 auto calculate_product(const std::string& str, size_t start, size_t digits) {
     auto begin = str.begin() + start;
     return std::accumulate(
-        begin, begin + digits, 1ul,
-        [](unsigned long product, char c) { return product * atol(&c); });
+        begin, begin + digits, uint64_t{1},
+        [](uint64_t product, char c) { return product * atol(&c); });
 }
 
 auto find_greatest_product(const std::string& number, size_t digits) {
-    unsigned long greatest_product{0};
+    uint64_t greatest_product{0};
     for (size_t i = 0; i < number.size() - digits; ++i) {
-        unsigned long current_product = calculate_product(number, i, digits);
+        uint64_t current_product = calculate_product(number, i, digits);
         greatest_product = std::max(greatest_product, current_product);
     }
     return greatest_product;

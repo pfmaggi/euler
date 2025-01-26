@@ -2,9 +2,10 @@
  * What is the largest prime factor of the number 600851475143?
  */
 
+#include <cstdint>
 #include <iostream>
 
-unsigned long findLargestPrimeFactor(unsigned long number) {
+uint64_t findLargestPrimeFactor(uint64_t number) {
     auto result{0};
     while (number % 2 == 0) {
         result = 2;
