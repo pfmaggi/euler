@@ -4,7 +4,7 @@
 def euler_0001(limit):
     """Return the sum of all the multiples of 3 or 5 below limit"""
 
-    total = sum([x for x in range(limit) if (x % 3 == 0) or (x % 5 == 0)])
+    total = sum(x for x in range(limit) if (x % 3 == 0) or (x % 5 == 0))
 
     return total
 
