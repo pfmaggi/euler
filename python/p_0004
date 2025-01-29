@@ -12,7 +12,7 @@ def is_number_palindrome(num):
     return True
 
 
-def search_largest_palindrome(limit):
+def euler_0004(limit):
     """Print largest palindrome product of two numbers
        with limit number of digits. """
     upper = 10**limit
@@ -24,14 +24,11 @@ def search_largest_palindrome(limit):
             if is_number_palindrome(value) and value > largest_palindrome:
                 largest_palindrome = value
                 factors = (i, j)
-    print(
-        "Largest palindrome is: ",
-        factors[0], "*", factors[1],
-        "=", largest_palindrome
-    )
 
-    return largest_palindrome
+    return factors, largest_palindrome
 
 
 if __name__ == '__main__':
-    search_largest_palindrome(3)
+    factors, palindrome = euler_0004(3)
+    print("Problem 0004: The largest palindrome made from the product of two" +
+          f" 3-digit numbers is: {factors[0]} x {factors[1]} = {palindrome}")

@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
-
 """By considering the terms in the Fibonacci sequence whose values do not
  exceed four million, find the sum of the even-valued terms."""
 
 
-def sum_even_fibonacci(limit):
+def euler_0002(limit):
     """Return the sum of the even-valued terms."""
     total = 0
     first = 1
@@ -19,4 +18,6 @@ def sum_even_fibonacci(limit):
 
 
 if __name__ == '__main__':
-    print(sum_even_fibonacci(4000000))
+    print(
+        "Problem 0002: Sum of even-valued fibonacci " +
+        f"terms below 4000000 is: {euler_0002(4000000)}")

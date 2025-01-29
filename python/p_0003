@@ -3,7 +3,7 @@
 """What is the largest prime factor of the number 600851475143?"""
 
 
-def find_largest_prime_factor(number):
+def euler_0003(number):
     """Return largest prime factor"""
     result = 0
 
@@ -21,8 +21,9 @@ def find_largest_prime_factor(number):
     if number > 2:
         result = number
 
-    return result
+    return int(result)
 
 
 if __name__ == '__main__':
-    print(find_largest_prime_factor(600851475143))
+    print("Problem 0003: The largest prime factor " +
+          f"of the number 600851475143 is: {euler_0003(600851475143)}")

@@ -35,11 +35,11 @@ def euler_0009():
             (is_triplet, c) = is_pythagorean_triplet(a, b)
             if is_triplet:
                 if a + b + c == 1000:
-                    print("Pythagorean Triplet:", a, b, c)
-                    product = a * b * c
-                    print("product:", product)
-                    return product
+                    return a, b, c
 
 
 if __name__ == '__main__':
-    euler_0009()
+    a, b, c = euler_0009()
+    print(
+        "Problem 0009: The product of the Pythagorean triplet " +
+        f"({a}, {b}, {c}) is: {a * b * c}")

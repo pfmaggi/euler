@@ -30,7 +30,7 @@ number = """
 """
 
 
-def search_greatest_product(digits):
+def euler_0008(digits):
     """
     digits: number of adjacent digits to use to compute the product.
     return: greatest product of the adjacent digits from the `number`
@@ -49,4 +49,5 @@ def search_greatest_product(digits):
 
 
 if __name__ == '__main__':
-    print(search_greatest_product(13))
+    print("Problem 0008: The value of the greatest product of thirteen " +
+          f"adjacent digits in the number is {euler_0008(13)}")
