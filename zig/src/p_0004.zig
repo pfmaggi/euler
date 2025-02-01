@@ -6,6 +6,8 @@
 const std = @import("std");
 const fmt = std.fmt;
 
+const IntPair = struct { first: usize, second: usize };
+
 fn is_number_palindrome(number: usize) bool {
     var buf: [128]u8 = undefined;
 
@@ -19,26 +21,21 @@ fn is_number_palindrome(number: usize) bool {
     return true;
 }
 
-fn find_palindrome(digits: usize) usize {
+fn euler_0004(digits: usize) IntPair {
     var limit: usize = 1;
-    var i: usize = 0;
-    while (i < digits) {
-        i += 1;
+    for (0..digits) |_| {
         limit *= 10;
     }
 
-    var result: usize = 0;
-    var a: usize = limit;
+    var result: IntPair = .{ .first = 0, .second = 0 };
+    var largest_palindrome: usize = 0;
     var value: usize = 0;
-    while (a > 0) {
-        a -= 1;
-        var b: usize = limit;
-        while (b > 0) {
-            b -= 1;
-            value = a * b;
-            if (is_number_palindrome(value) and value > result) {
-                result = value;
-                if (b > a) return result;
+    for ((limit / 10)..limit) |i| {
+        for (i..limit) |j| {
+            value = i * j;
+            if (is_number_palindrome(value) and value > largest_palindrome) {
+                largest_palindrome = value;
+                result = .{ .first = i, .second = j };
             }
         }
     }
@@ -48,10 +45,15 @@ fn find_palindrome(digits: usize) usize {
 
 pub fn main() anyerror!void {
     const stdout = std.io.getStdOut().writer();
-
-    try stdout.print("Problem 0004: The largest palindrome made from the product of two 3-digit numbers is: {d}\n", .{find_palindrome(3)});
+    const factors = euler_0004(3);
+    const i = factors.first;
+    const j = factors.second;
+    try stdout.print("Problem 0004: The largest palindrome made from the product of two 3-digit numbers is: {d} x {d} = {d}\n", .{ i, j, i * j });
 }
 
 test "the largest palindrome made from product of 2-digit numbers is 9009" {
-    try std.testing.expect(find_palindrome(2) == 9009);
+    const factors = euler_0004(2);
+    const i = factors.first;
+    const j = factors.second;
+    try std.testing.expect((i * j) == 9009);
 }
