@@ -22,7 +22,7 @@ uint64_t euler_0003(uint64_t number);
 std::pair<int, int> euler_0004(int limit);
 uint64_t euler_0005(int max);
 uint64_t euler_0006(int upper_bound);
-int euler_0007(unsigned int count);
+int euler_0007(uint64_t limit);
 uint64_t euler_0008(size_t digits);
 std::optional<std::tuple<int, int, int>> euler_0009(int sum);
 uint64_t euler_0010(uint64_t limit);
