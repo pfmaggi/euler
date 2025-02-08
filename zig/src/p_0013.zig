@@ -106,7 +106,7 @@ const numbers =
     \\53503534226472524250874054075591789781264330331690
 ;
 
-fn euler_13(allocator: std.mem.Allocator) ![]const u8 {
+fn euler_0013(allocator: std.mem.Allocator) ![]const u8 {
     var sum = try Managed.initSet(allocator, 0);
     defer sum.deinit();
 
@@ -129,7 +129,7 @@ fn euler_13(allocator: std.mem.Allocator) ![]const u8 {
 test "euler13" {
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     const allocator = arena.allocator();
-    const sum = euler_13(allocator) catch @panic("Not a valid number\n");
+    const sum = euler_0013(allocator) catch @panic("Not a valid number\n");
     defer allocator.free(sum);
     try std.testing.expectEqualStrings("5537376230390876637302048746832985971773659831892672", sum);
 }
@@ -137,7 +137,7 @@ test "euler13" {
 pub fn main() !void {
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     const allocator = arena.allocator();
-    const sum = euler_13(allocator) catch @panic("Not a valid number\n");
+    const sum = euler_0013(allocator) catch @panic("Not a valid number\n");
     defer allocator.free(sum);
 
     // Print the first ten digits
