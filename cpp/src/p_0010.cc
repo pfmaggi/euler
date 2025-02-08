@@ -1,6 +1,4 @@
-#include <cstdint>
-#include <iostream>
-#include <vector>
+#include "euler.h"
 
 // Function to compute the sum of primes below a given limit using the Sieve of
 // Eratosthenes
@@ -24,13 +22,4 @@ uint64_t euler_0010(uint64_t limit) {
     }
 
     return sum;
-}
-
-int main() {
-    auto result = euler_0010(2'000'000);
-    std::cout
-        << "Problem 0010: The sum of all the primes below two million is: "
-        << result << '\n';
-
-    return 0;
 }

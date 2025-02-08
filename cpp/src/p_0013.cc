@@ -1,11 +1,7 @@
 // Work out the first ten digits of the sum of the following one-hundred
 // 500-digit numbers.
 
-#include <cassert>
-#include <iostream>
-#include <numeric>
-#include <string>
-#include <vector>
+#include "euler.h"
 
 std::vector<std::string> numbers = {
     "37107287533902102798797998220837590246510135740250",
@@ -111,13 +107,12 @@ std::vector<std::string> numbers = {
 };
 
 int sum_column(int index) {
-    int sum{0};
     return std::accumulate(
         numbers.begin(), numbers.end(), 0,
         [index](int sum, std::string line) { return sum + line[index] - '0'; });
 }
 
-std::string euler_13() {
+std::string euler_0013() {
     std::string result;
     int value = 0;
     for (int i = numbers[0].length() - 1; i >= 0; i--) {
@@ -134,9 +129,4 @@ std::string euler_13() {
     return result;
 }
 
-int main() {
-    std::string result = euler_13();
-    std::cout << "Problem 0013: The first ten digits of the sum are: "
-              << result.substr(0, 10) << '\n';
-    assert(result == "5537376230390876637302048746832985971773659831892672");
-}
+// assert(result == "5537376230390876637302048746832985971773659831892672");

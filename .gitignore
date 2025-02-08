@@ -27,5 +27,9 @@ zig-out/
 # Common Lisp
 *.fasl
 
-# C++
+# C binareis
 p_????.out
+
+# Bazel C++ files
+bazel-*
+*.lock

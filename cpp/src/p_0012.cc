@@ -1,6 +1,4 @@
-#include <cmath>
-#include <cstdint>
-#include <iostream>
+#include "euler.h"
 
 constexpr auto count_divisors(uint64_t num) -> uint64_t {
     if (num == 0) return 0;
@@ -29,7 +27,7 @@ constexpr auto count_divisors(uint64_t num) -> uint64_t {
     return divisors;
 }
 
-auto euler_0012(uint64_t target) -> uint64_t {
+uint64_t euler_0012(uint64_t target) {
     const auto triangle_divisors = [](uint64_t n) {
         const auto a = (n & 1) ? n : n / 2;
         const auto b = (n & 1) ? (n + 1) / 2 : n + 1;
@@ -40,10 +38,4 @@ auto euler_0012(uint64_t target) -> uint64_t {
     while (triangle_divisors(n) <= target) ++n;
 
     return (n & 1) ? n * (n + 1) / 2 : (n / 2) * (n + 1);
-}
-
-int main() {
-    std::cout << "Problem 0012: The first triangular number with over 500 "
-                 "divisors is: "
-              << euler_0012(500) << '\n';
 }

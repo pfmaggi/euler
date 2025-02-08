@@ -3,18 +3,14 @@
 //
 // Find the largest palindrome made from the product of two 3-digit numbers.
 
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <string>
-#include <utility>
+#include "euler.h"
 
 bool is_palindrome(int num) {
     std::string s = std::to_string(num);
     return std::equal(s.begin(), s.begin() + s.size() / 2, s.rbegin());
 }
 
-std::pair<int, int> search_largest_palindrome(int limit) {
+std::pair<int, int> euler_0004(int limit) {
     int upper = std::pow(10, limit);
 
     int largest_palindrome{0};
@@ -30,12 +26,4 @@ std::pair<int, int> search_largest_palindrome(int limit) {
     }
 
     return factors;
-}
-
-int main() {
-    auto [i, j] = search_largest_palindrome(3);
-    std::cout << "Problem 0004: The largest palindrome made from the product "
-                 "of two 3-digit numbers is: "
-              << i << " x " << j << " = " << i * j << "\n";
-    return 0;
 }

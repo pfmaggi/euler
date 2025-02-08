@@ -1,8 +1,6 @@
 #include <cassert>
-#include <cmath>
-#include <iostream>
-#include <optional>
-#include <tuple>
+
+#include "euler.h"
 
 std::optional<int> is_pythagorean_triplet(int a, int b) {
     assert(a < b);
@@ -27,17 +25,4 @@ std::optional<std::tuple<int, int, int>> euler_0009(int sum) {
         }
     }
     return std::nullopt;
-}
-
-int main() {
-    if (auto result = euler_0009(1000)) {
-        int a, b, c;
-        std::tie(a, b, c) = result.value();
-        std::cout << "Problem 0009: The product of the Pythagorean triplet ("
-                  << a << ", " << b << ", " << c << ") is: " << a * b * c
-                  << std::endl;
-    } else {
-        std::cout << "No Pythagorean triplet found." << std::endl;
-    }
-    return 0;
 }

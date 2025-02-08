@@ -1,9 +1,4 @@
-#include <algorithm>
-#include <iostream>
-#include <numeric>
-#include <sstream>
-#include <string>
-#include <vector>
+#include "euler.h"
 
 const std::string grid = R"(
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -74,7 +69,8 @@ int computeProductDiagonal(const Matrix& matrix) {
     return max;
 }
 
-int euler_11(Matrix matrix) {
+int euler_0011() {
+    Matrix matrix{parseGrid(grid)};
     // computeProductHorizontal
     int max{std::accumulate(std::begin(matrix), std::end(matrix), 0,
                             [](int currentMax, const std::vector<int>& row) {
@@ -91,12 +87,4 @@ int euler_11(Matrix matrix) {
     max = std::max(max, computeProductDiagonal(matrix));
 
     return max;
-}
-int main() {
-    Matrix matrix{parseGrid(grid)};
-
-    std::cout << "Problem 0011: The greatest product of four adjacent numbers "
-                 "in the same direction is: "
-              << euler_11(matrix) << '\n';
-    return 0;
 }

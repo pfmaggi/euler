@@ -1,0 +1,12 @@
+cc_library(
+  name = "problems",
+  srcs = glob(["*.cc"]),
+  # srcs = ["p_0001.cc", "p_0002.cc", "p_0003.cc", "p_0004.cc", "p_0005.cc", "p_0006.cc", ],
+  hdrs = glob(["*.h"]) # ["euler.h", "iota_view.h"],
+)
+
+cc_binary(
+  name = "euler",
+  srcs = ["euler.cc"],
+  deps = [":problems"]
+)

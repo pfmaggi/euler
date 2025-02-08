@@ -3,9 +3,9 @@
  * exceed four million, find the sum of the even-valued terms.
  */
 
-#include <iostream>
+#include "euler.h"
 
-int sum_even_fibonacci(int limit) {
+int euler_0002(int limit) {
     // Return the sum of the even-valued terms.
     int total{};
     int first{1};
@@ -17,10 +17,4 @@ int sum_even_fibonacci(int limit) {
         first = temp;
     }
     return total;
-}
-
-int main() {
-    std::cout
-        << "Problem 0002: Sum of even-valued fibonacci terms below 4000000 is: "
-        << sum_even_fibonacci(4000000) << '\n';
 }

@@ -1,9 +1,6 @@
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#include <vector>
+#include "euler.h"
 
-int find_prime_number(int count) {
+int euler_0007(unsigned int count) {
     std::vector<int> primes;
     int candidate = 2;
     while (primes.size() < count) {
@@ -14,11 +11,4 @@ int find_prime_number(int count) {
         }
     }
     return primes.back();
-}
-
-int main() {
-    int nth_prime = find_prime_number(10001);
-    std::cout << "Problem 0007: The 10001st prime number is: " << nth_prime
-              << std::endl;
-    return 0;
 }
