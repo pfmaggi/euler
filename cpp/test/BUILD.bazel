@@ -1,0 +1,15 @@
+
+cc_test(
+    name = "euler",
+    srcs = glob(["*.cc"]),
+    copts = [
+      "-Iexternal/gtest/googletest/include",
+      "-Iexternal/gtest/googletest",
+    ],
+    deps = [
+        "@googletest//:gtest_main",
+        "//src:problems",
+    ],
+    size ="small",
+)
+
