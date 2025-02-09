@@ -50,4 +50,7 @@ int main(void) {
     std::string euler_13 = euler_0013();
     std::cout << "Problem 0013: The first ten digits of the sum are: "
               << euler_13.substr(0, 10) << '\n';
+    std::cout << "Problem 0014: The starting number, under one million, that "
+                 "produces the longest chain is: "
+              << euler_0014() << '\n';
 }
