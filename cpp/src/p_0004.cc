@@ -15,7 +15,7 @@ std::pair<int, int> euler_0004(int limit) {
 
     int largest_palindrome{0};
     std::pair<int, int> factors;
-    for (int i{100}; i < upper; i++) {
+    for (int i{1}; i < upper; i++) {
         for (int j{i}; j < upper; j++) {
             int product{i * j};
             if (is_palindrome(product) && (product > largest_palindrome)) {

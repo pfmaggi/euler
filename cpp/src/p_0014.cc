@@ -1,15 +1,16 @@
+#include <algorithm>
+
 #include "euler.h"
+#include "iota_view.h"
 
-uint array[1000000]{0};
-
-uint compute_len(uint number) {
+uint compute_len(uint number, const std::vector<uint>& array) {
     uint value{number};
     uint count{1};
     while (value > 1) {
-        ++count;
         if (value < number) {
-            return count + array[value];
+            return count + array[value] - 1;
         }
+        ++count;
         if (value % 2 == 0) {
             value /= 2;
         } else {
@@ -19,11 +20,13 @@ uint compute_len(uint number) {
     return count;
 }
 
-uint euler_0014() {
+uint euler_0014(uint limit) {
+    std::vector<uint> array(limit + 1);
+
     uint max{0};
     uint result{1};
-    for (uint i{1}; i <= 1'000'000; i++) {
-        uint count = compute_len(i);
+    for (uint i{1}; i <= limit; i++) {
+        uint count = compute_len(i, array);
         array[i] = count;
         if (count > max) {
             max = count;

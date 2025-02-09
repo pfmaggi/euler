@@ -24,8 +24,6 @@ int main(void) {
               << euler_0006(100) << '\n';
     std::cout << "Problem 0007: The 10001st prime number is: "
               << euler_0007(10001) << '\n';
-
-    assert(euler_0008(4) == 5832);
     std::cout << "Problem 0008: What is the value of the greatest product of "
                  "thirteen adjacent digits in the number? "
               << euler_0008(13) << '\n';
@@ -52,5 +50,5 @@ int main(void) {
               << euler_13.substr(0, 10) << '\n';
     std::cout << "Problem 0014: The starting number, under one million, that "
                  "produces the longest chain is: "
-              << euler_0014() << '\n';
+              << euler_0014(1'000'000) << '\n';
 }

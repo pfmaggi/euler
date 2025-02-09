@@ -19,5 +19,5 @@ auto square_of_sum(int upper_bound) {
 }
 
 uint64_t euler_0006(int upper_bound) {
-    return square_of_sum(100) - sum_of_squares(100);
+    return square_of_sum(upper_bound) - sum_of_squares(upper_bound);
 }
