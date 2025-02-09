@@ -30,5 +30,6 @@ int euler_0011();
 uint64_t euler_0012(uint64_t target);
 std::string euler_0013();
 uint euler_0014(uint limit);
+uint64_t euler_0015(int size);
 
 #endif

@@ -51,4 +51,7 @@ int main(void) {
     std::cout << "Problem 0014: The starting number, under one million, that "
                  "produces the longest chain is: "
               << euler_0014(1'000'000) << '\n';
+    std::cout << "Problem 0015: In a 20 x 20 grid the number of available "
+                 "routes are: "
+              << euler_0015(20) << '\n';
 }

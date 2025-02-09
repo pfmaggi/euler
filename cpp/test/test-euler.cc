@@ -12,15 +12,20 @@ TEST(EulerTest, Problem0005) { EXPECT_EQ(euler_0005(10), 2520); }
 TEST(EulerTest, Problem0006) { EXPECT_EQ(euler_0006(10), 2640); }
 TEST(EulerTest, Problem0007) { EXPECT_EQ(euler_0007(6), 13); }
 TEST(EulerTest, Problem0008) { EXPECT_EQ(euler_0008(4), 5832); }
-TEST(EulerTest, Problem0009) {
-    if (auto result = euler_0009(25)) {
-        int a, b, c;
-        std::tie(a, b, c) = result.value();
+TEST(EulerTest, Problem0009_hasPythagoreanTriplet) {
+    auto result = euler_0009(12);
+    ASSERT_TRUE(result.has_value());
 
-        EXPECT_EQ(a, 3);
-        EXPECT_EQ(b, 4);
-        EXPECT_EQ(c, 5);
-    }
+    int a, b, c;
+    std::tie(a, b, c) = result.value();
+
+    EXPECT_EQ(a, 3);
+    EXPECT_EQ(b, 4);
+    EXPECT_EQ(c, 5);
+}
+TEST(EulerTest, Problem0009_hasNoPythagoreanTriplet) {
+    auto result = euler_0009(25);
+    ASSERT_FALSE(result.has_value());
 }
 TEST(EulerTest, Problem0010) { EXPECT_EQ(euler_0010(10), 17); }
 // There's no test for Problem 11
@@ -30,3 +35,4 @@ TEST(EulerTest, Problem0013) {
               "5537376230390876637302048746832985971773659831892672");
 }
 TEST(EulerTest, Problem0014) { EXPECT_EQ(euler_0014(13), 9); }
+TEST(EulerTest, Problem0015) { EXPECT_EQ(euler_0015(2), 6); }
