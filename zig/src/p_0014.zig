@@ -2,9 +2,7 @@
 
 const std = @import("std");
 
-var array: [1000000]usize = std.mem.zeroes([1000000]usize);
-
-fn euler_0014(number: usize) usize {
+fn compute_len(number: usize, array: []usize) usize {
     var value = number;
     var count: usize = 1;
     while (value > 1) {
@@ -27,27 +25,27 @@ fn euler_0014(number: usize) usize {
     return count;
 }
 
-// The sequence generated starting from the number 13 has 10 elements:
-// 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
-test "euler14" {
-    for (1..13) |n| {
-        const count = euler_0014(n);
-        array[n] = count;
-    }
-    try std.testing.expectEqual(10, euler_0014(13));
-}
+fn euler_0014(comptime limit: usize) usize {
+    var array: [limit + 1]usize = std.mem.zeroes([limit + 1]usize);
 
-pub fn main() !void {
     var max: usize = 0;
     var result: usize = 1;
-    for (1..1000000) |n| {
-        const count = euler_0014(n);
+    for (1..limit) |n| {
+        const count = compute_len(n, &array);
         array[n] = count;
         if (count > max) {
             max = count;
             result = n;
         }
     }
-    // Print the first ten digits
+    return result;
+}
+
+test "euler14" {
+    try std.testing.expectEqual(9, euler_0014(13));
+}
+
+pub fn main() !void {
+    const result = euler_0014(1000000);
     std.debug.print("Problem 0014: The starting number, under one million, that produces the longest chain is: {d}\n", .{result});
 }
