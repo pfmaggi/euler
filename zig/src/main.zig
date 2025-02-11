@@ -15,6 +15,7 @@ const p_0012 = @import("p_0012.zig").main;
 const p_0013 = @import("p_0013.zig").main;
 const p_0014 = @import("p_0014.zig").main;
 const p_0015 = @import("p_0015.zig").main;
+const p_0016 = @import("p_0016.zig").main;
 
 pub fn main() anyerror!void {
     try p_0001();
@@ -32,6 +33,7 @@ pub fn main() anyerror!void {
     try p_0013();
     try p_0014();
     try p_0015();
+    try p_0016();
 }
 
 test "run all tests" {
@@ -50,4 +52,5 @@ test "run all tests" {
     _ = @import("p_0013.zig");
     _ = @import("p_0014.zig");
     _ = @import("p_0015.zig");
+    _ = @import("p_0016.zig");
 }
