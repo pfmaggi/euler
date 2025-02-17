@@ -15,3 +15,45 @@ returns an integer representing the answer.
 
 Functions useful to multiple problems can be found in
 `common.*`.
+
+### C++
+
+You can use [`bazel`] to build, run and test the C++ solutions.
+
+To build `euler` executable that include all the solutions use:
+
+    bazel build //src:euler
+
+To build and run all the solutions you can use:
+
+    bazel run //src:euler
+
+To test all the solutions you can use:
+
+    bazel test //test:euler
+
+To see the details of all the tests use:
+
+    bazel test --test_output=all test:euler
+
+### Zig
+
+Zig's solutions can be built and run using the included `build.zig`.
+This is based on the `src/main.zig` source that needs to be manually
+updated to run all the solutions and all the test.
+
+The following commands are available:
+
+- build `euler` solutions:
+
+    zig build
+
+- build and run `euler` solutions:
+
+    zig run src/main.zig
+
+- build and run `euler` tests:
+
+    zig test src/main.zig
+
+[`bazel`]: https://bazel.build/
