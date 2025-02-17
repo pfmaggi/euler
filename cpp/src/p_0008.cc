@@ -26,12 +26,12 @@ auto calculate_product(const std::string& str, size_t start, size_t digits) {
     auto begin = str.begin() + start;
     return std::accumulate(
         begin, begin + digits, uint64_t{1},
-        [](uint64_t product, char c) { return product * atol(&c); });
+        [](uint64_t product, uint64_t c) { return product * (c - '0'); });
 }
 
 uint64_t euler_0008(size_t digits) {
     uint64_t greatest_product{0};
-    for (size_t i = 0; i < number.size() - digits; ++i) {
+    for (size_t i{0}; i < number.size() - digits; ++i) {
         uint64_t current_product = calculate_product(number, i, digits);
         greatest_product = std::max(greatest_product, current_product);
     }
