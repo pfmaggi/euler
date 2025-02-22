@@ -54,4 +54,6 @@ int main(void) {
     std::cout << "Problem 0015: In a 20 x 20 grid the number of available "
                  "routes are: "
               << euler_0015(20) << '\n';
+    std::cout << "Problem 0016: The sum of the digits of 2^1000 is: "
+              << euler_0016(1'000) << "\n";
 }
