@@ -32,5 +32,6 @@ std::string euler_0013();
 uint euler_0014(uint limit);
 uint64_t euler_0015(int size);
 int euler_0016(int exponent);
+int euler_0017(int limit);
 
 #endif

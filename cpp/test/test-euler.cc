@@ -37,3 +37,4 @@ TEST(EulerTest, Problem0013) {
 TEST(EulerTest, Problem0014) { EXPECT_EQ(euler_0014(13), 9); }
 TEST(EulerTest, Problem0015) { EXPECT_EQ(euler_0015(2), 6); }
 TEST(EulerTest, Problem0016) { EXPECT_EQ(euler_0016(15), 26); }
+TEST(EulerTest, Problem0017) { EXPECT_EQ(euler_0017(5), 19); }

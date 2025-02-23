@@ -55,5 +55,8 @@ int main(void) {
                  "routes are: "
               << euler_0015(20) << '\n';
     std::cout << "Problem 0016: The sum of the digits of 2^1000 is: "
-              << euler_0016(1'000) << "\n";
+              << euler_0016(1'000) << '\n';
+    std::cout << "Problem 0017: Total number of letters used for numbers from "
+                 "1 to 1000 is: "
+              << euler_0017(1'000) << '\n';
 }
