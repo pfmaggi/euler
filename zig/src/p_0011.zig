@@ -26,11 +26,11 @@ const grid =
 fn parseGrid() ![20][20]u8 {
     var matrix: [20][20]u8 = undefined;
     var row: usize = 0;
-    var lines = std.mem.split(u8, grid, "\n");
+    var lines = std.mem.splitSequence(u8, grid, "\n");
     while (lines.next()) |line| {
         if (line.len == 0) continue;
         var col: usize = 0;
-        var numbers = std.mem.split(u8, line, " ");
+        var numbers = std.mem.splitSequence(u8, line, " ");
         while (numbers.next()) |number| {
             matrix[row][col] = try std.fmt.parseInt(u8, number, 10);
             col += 1;

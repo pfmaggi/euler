@@ -110,7 +110,7 @@ fn euler_0013(allocator: std.mem.Allocator) ![]const u8 {
     var sum = try Managed.initSet(allocator, 0);
     defer sum.deinit();
 
-    var lines = std.mem.split(u8, numbers, "\n");
+    var lines = std.mem.splitSequence(u8, numbers, "\n");
     while (lines.next()) |line| {
         // Parse the line as a big integer
         var number = try Managed.initSet(allocator, 0);
