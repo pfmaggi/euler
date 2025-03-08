@@ -2,12 +2,15 @@ package(default_visibility = ["//test:__pkg__"])
 
 cc_library(
   name = "problems",
-  srcs = glob(["*.cc"]),
+  srcs = glob(["p_*.cc"]),
   hdrs = glob(["*.h"]) # ["euler.h", "iota_view.h"],
 )
 
 cc_binary(
   name = "euler",
   srcs = ["euler.cc"],
-  deps = [":problems"]
+  deps = [
+    "@fmt//:fmt",
+    ":problems",
+  ]
 )
