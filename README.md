@@ -24,6 +24,10 @@ To build `euler` executable that include all the solutions use:
 
     bazel build //src:euler
 
+To build an optimized version of the solutions use:
+
+    bazel build -c opt //src:euler
+
 To build and run all the solutions you can use:
 
     bazel run //src:euler
