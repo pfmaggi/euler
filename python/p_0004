@@ -6,20 +6,20 @@
 def is_number_palindrome(num):
     """Return True if num is palindrome, False if not."""
     value = str(num)
-    for i in range(int(len(value)/2)+1):
-        if value[i] != value[-(i+1)]:
+    for i in range(int(len(value) / 2) + 1):
+        if value[i] != value[-(i + 1)]:
             return False
     return True
 
 
 def euler_0004(limit):
     """Print largest palindrome product of two numbers
-       with limit number of digits. """
+    with limit number of digits."""
     upper = 10**limit
     largest_palindrome = 0
     factors = (0, 0)
     for i in range(upper):
-        for j in range(upper):
+        for j in range(i, upper):
             value = i * j
             if is_number_palindrome(value) and value > largest_palindrome:
                 largest_palindrome = value
@@ -28,7 +28,9 @@ def euler_0004(limit):
     return factors, largest_palindrome
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     factors, palindrome = euler_0004(3)
-    print("Problem 0004: The largest palindrome made from the product of two" +
-          f" 3-digit numbers is: {factors[0]} x {factors[1]} = {palindrome}")
+    print(
+        "Problem 0004: The largest palindrome made from the product of two"
+        + f" 3-digit numbers is: {factors[0]} x {factors[1]} = {palindrome}"
+    )
