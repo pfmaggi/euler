@@ -30,9 +30,9 @@ fn largest_factor(value: usize) usize {
 }
 
 pub fn main() anyerror!void {
-    const stdout = std.io.getStdOut().writer();
+    var out = std.fs.File.stdout().writerStreaming(&.{});
 
-    try stdout.print("Problem 0003: The largest prime factor of the number 600851475143 is: {d}\n", .{largest_factor(600851475143)});
+    try out.interface.print("Problem 0003: The largest prime factor of the number 600851475143 is: {d}\n", .{largest_factor(600851475143)});
 }
 
 test "the largest prime factor of 13195 is 29" {

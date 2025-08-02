@@ -22,9 +22,9 @@ fn square_of_sum(upper_bound: u16) u64 {
 }
 
 pub fn main() anyerror!void {
-    const stdout = std.io.getStdOut().writer();
+    var out = std.fs.File.stdout().writerStreaming(&.{});
 
-    try stdout.print("Problem 0006: Difference between the squares of sums and the sum of square: {d}\n", .{square_of_sum(100) - sum_of_squares(100)});
+    try out.interface.print("Problem 0006: Difference between the squares of sums and the sum of square: {d}\n", .{square_of_sum(100) - sum_of_squares(100)});
 }
 
 test "2640 is the difference between the square of sums and the sum of squares for the first 10 numbers" {

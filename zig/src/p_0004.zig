@@ -44,11 +44,11 @@ fn euler_0004(digits: usize) IntPair {
 }
 
 pub fn main() anyerror!void {
-    const stdout = std.io.getStdOut().writer();
+    var out = std.fs.File.stdout().writerStreaming(&.{});
     const factors = euler_0004(3);
     const i = factors.first;
     const j = factors.second;
-    try stdout.print("Problem 0004: The largest palindrome made from the product of two 3-digit numbers is: {d} x {d} = {d}\n", .{ i, j, i * j });
+    try out.interface.print("Problem 0004: The largest palindrome made from the product of two 3-digit numbers is: {d} x {d} = {d}\n", .{ i, j, i * j });
 }
 
 test "the largest palindrome made from product of 2-digit numbers is 9009" {

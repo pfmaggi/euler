@@ -52,6 +52,10 @@ The following commands are available:
 
     zig build
 
+- build a "fast" version of the 'euler' solutions:
+
+    zig build --release=fast
+
 - build and run `euler` solutions:
 
     zig run src/main.zig
