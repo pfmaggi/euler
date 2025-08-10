@@ -48,19 +48,19 @@ updated to run all the solutions and all the test.
 
 The following commands are available:
 
-- build `euler` solutions:
+To build `euler` solutions:
 
     zig build
 
-- build a "fast" version of the 'euler' solutions:
+To build a "fast" version of the 'euler' solutions:
 
     zig build --release=fast
 
-- build and run `euler` solutions:
+To build and run `euler` solutions:
 
     zig run src/main.zig
 
-- build and run `euler` tests:
+To build and run `euler` tests:
 
     zig test src/main.zig
 

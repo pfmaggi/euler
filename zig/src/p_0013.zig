@@ -1,7 +1,6 @@
 // Work out the first ten digits of the sum of the following one-hundred 500-digit numbers.
 
 const std = @import("std");
-const Managed = std.math.big.int.Managed;
 
 const numbers =
     \\37107287533902102798797998220837590246510135740250
@@ -106,39 +105,41 @@ const numbers =
     \\53503534226472524250874054075591789781264330331690
 ;
 
-fn euler_0013(allocator: std.mem.Allocator) ![]const u8 {
-    var sum = try Managed.initSet(allocator, 0);
-    defer sum.deinit();
+var sum: [52]u8 = undefined;
 
+fn sum_column(col: usize) u32 {
+    var sum_col: u32 = 0;
     var lines = std.mem.splitSequence(u8, numbers, "\n");
     while (lines.next()) |line| {
-        // Parse the line as a big integer
-        var number = try Managed.initSet(allocator, 0);
-        defer number.deinit();
-        try Managed.setString(&number, 10, line);
+        sum_col += line[col] - '0';
+    }
+    return sum_col;
+}
 
-        // Add the number to the sum
-        try sum.add(&sum, &number);
+fn euler_0013() void {
+    var value: u32 = 0;
+    var col: usize = 49;
+    while (true) {
+        value += sum_column(col);
+        sum[col + 2] = @as(u8, @intCast(value % 10)) + '0';
+        value /= 10;
+
+        if (col == 0) break;
+        col -= 1;
     }
 
-    // Convert the sum to a string
-    const sum_str = try sum.toString(allocator, 10, .lower);
-    return sum_str;
+    sum[1] = @as(u8, @intCast(value % 10)) + '0';
+    value /= 10;
+    sum[0] = @as(u8, @intCast(value % 10)) + '0';
 }
 
 test "euler13" {
-    var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
-    const allocator = arena.allocator();
-    const sum = euler_0013(allocator) catch @panic("Not a valid number\n");
-    defer allocator.free(sum);
-    try std.testing.expectEqualStrings("5537376230390876637302048746832985971773659831892672", sum);
+    euler_0013();
+    try std.testing.expectEqualStrings("5537376230390876637302048746832985971773659831892672", &sum);
 }
 
 pub fn main() !void {
-    var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
-    const allocator = arena.allocator();
-    const sum = euler_0013(allocator) catch @panic("Not a valid number\n");
-    defer allocator.free(sum);
+    euler_0013();
 
     // Print the first ten digits
     std.debug.print("Problem 0013: The first ten digits of the sum are: {s}\n", .{sum[0..10]});
