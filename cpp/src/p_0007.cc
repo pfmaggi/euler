@@ -1,5 +1,3 @@
-#include <cstdint>
-
 #include "euler.h"
 
 bool isPrime(uint64_t number) {

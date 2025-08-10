@@ -1,8 +1,11 @@
+#include <cstdint>
+
 #include "euler.h"
 
+using vector_u64 = std::vector<uint64_t>;
+
 uint64_t euler_0015(int size) {
-    std::vector<std::vector<uint64_t>> grid(size + 1,
-                                            std::vector<uint64_t>(size + 1, 0));
+    std::vector<vector_u64> grid(size + 1, vector_u64(size + 1, 0));
 
     // Initialize the top row and left column
     for (int i = 0; i <= size; ++i) {

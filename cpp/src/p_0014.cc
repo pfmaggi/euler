@@ -1,7 +1,4 @@
-#include <algorithm>
-
 #include "euler.h"
-#include "iota_view.h"
 
 uint compute_len(uint number, const std::vector<uint>& array) {
     uint value{number};

@@ -1,4 +1,7 @@
-// Work out the first ten digits of the sum of the following one-hundred 500-digit numbers.
+// The following iterative sequence is defined for the set of positive integers:
+//
+// n = n / 2  when n is even
+// n = 3 * n + 1 when n is odd
 
 const std = @import("std");
 
