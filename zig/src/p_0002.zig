@@ -22,9 +22,7 @@ fn compute(limit: usize) usize {
 }
 
 pub fn main() anyerror!void {
-    var out = std.fs.File.stdout().writerStreaming(&.{});
-
-    try out.interface.print("Problem 0002: Sum of even-valued fibonacci terms below 4000000 is: {d}\n", .{compute(4000000)});
+    std.debug.print("Problem 0002: Sum of even-valued fibonacci terms below 4000000 is: {d}\n", .{compute(4000000)});
 }
 
 test "sum of multiple below 100 is 44" {

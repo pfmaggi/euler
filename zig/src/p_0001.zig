@@ -15,9 +15,7 @@ fn compute(comptime limit: usize) usize {
 }
 
 pub fn main() anyerror!void {
-    var out = std.fs.File.stdout().writerStreaming(&.{});
-
-    try out.interface.print("Problem 0001: Sum of multiples of 3 and 5 below 1000 is: {d}\n", .{comptime compute(1000)});
+    std.debug.print("Problem 0001: Sum of multiples of 3 and 5 below 1000 is: {d}\n", .{comptime compute(1000)});
 }
 
 test "sum of multiple below 10 is 23" {
