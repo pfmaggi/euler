@@ -48,13 +48,24 @@ updated to run all the solutions and all the test.
 
 The following commands are available:
 
-To build `euler` solutions:
+To build `euler` solutions (and also all the solutions executables):
 
     zig build
 
-To build a "fast" version of the 'euler' solutions:
+To build a "fast" version of the solutions:
 
     zig build --release=fast
+
+To test the solutions
+
+    $ zig build test
+    # (No output means success!)
+
+To explicitly see which tests ran and passed, use the `--summary all` flag:
+
+    zig build test --summary all
+
+This will print a tree of all the build steps and test results.
 
 To build and run `euler` solutions:
 
