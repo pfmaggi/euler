@@ -1,18 +1,16 @@
 mod problems;
-use project_euler::Runner;
+use project_euler::{ProblemFactory, Runner};
 use std::env;
 use std::time::{Duration, Instant};
 
 fn main() {
-    // Register all implemented problems
-    let all_problems: Vec<Box<dyn Runner>> = vec![
-        Box::new(problems::p001::Problem1),
-        Box::new(problems::p005::Problem5),
-        Box::new(problems::p007::Problem7),
-        Box::new(problems::p010::Problem10),
-        Box::new(problems::p012::Problem12),
-        // Add new problems to this list
-    ];
+    // Collect all submitted problems and sort them by ID
+    let mut all_problems: Vec<_> = inventory::iter::<ProblemFactory>
+        .into_iter()
+        .map(|factory| (factory.create)())
+        .collect();
+
+    all_problems.sort_by_key(|p| p.id());
 
     let args: Vec<String> = env::args().collect();
 

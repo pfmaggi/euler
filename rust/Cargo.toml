@@ -4,10 +4,11 @@ version = "0.1.0"
 edition = "2024"
 authors = ["Pietro F. Maggi <pfm@pietromaggi.com"]
 description = "Solutions for Project Euler problems in Rust"
+default-run = "project_euler"
 
 [dependencies]
 bit-vec = "0.8.0"
-# None for now, we may need 'num-bigint' if a problem exceeds u128.
+inventory = "0.3.22"
 
 [profile.release]
 opt-level = 3
